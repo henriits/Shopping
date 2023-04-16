@@ -21,12 +21,12 @@ def home(requests):
 
             },
             {
-                'title': 'SOMETHING ELSE!!',
+                'title': 'NEW!!',
                 'body': 'Am i doing it right?',
 
             },
             {
-                'title': 'SOMETHING ELSE!!',
+                'title': 'DISCOUNTED',
                 'body': 'Am i doing it right?',
 
             }
