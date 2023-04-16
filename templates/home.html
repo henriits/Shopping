@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block webcontent %}
+
+
+<div class="container">
+    <div class="col-sm-9">
+        <div class="row">
+            {% for entry in cart_entries %}
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">%%% SALE %%%</div>
+
+                    <div class="panel-body">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="img-responsive" alt="Image">
+                        </div>
+
+                        <hr>
+                        <h2>{{ entry.title }}</h2>
+
+                        <br>
+                        <p>{{ entry.body }}</p>
+                        <br><br>
+                    </div>
+
+                    <div class="panel-footer"><button>BUY NOW</button> </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
