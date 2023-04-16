@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 # Create your views here.
 def home(requests):
     context = {
@@ -7,7 +8,6 @@ def home(requests):
             {
                 'title': 'GOOD SHOES!',
                 'body': 'I have created my first template in Django!',
-
 
             },
             {
@@ -19,11 +19,13 @@ def home(requests):
                 'title': 'SOMETHING ELSE!!',
                 'body': 'Am i doing it right?',
 
-            } ,  {
+            },
+            {
                 'title': 'SOMETHING ELSE!!',
                 'body': 'Am i doing it right?',
 
-            }  , {
+            },
+            {
                 'title': 'SOMETHING ELSE!!',
                 'body': 'Am i doing it right?',
 
@@ -32,7 +34,6 @@ def home(requests):
     }
 
     return render(requests, 'home.html', context)
-
 
 
 def products(requests):
