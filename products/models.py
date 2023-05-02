@@ -16,12 +16,12 @@ class Post(models.Model):
 
 
 
-class Items(models.Model):
+class Item(models.Model):
     name = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
     price = models.CharField(max_length=250)
-    image = models.ImageField
+
     date = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.text
+
+
