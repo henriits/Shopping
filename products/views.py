@@ -1,40 +1,30 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
+
+from products.forms import SignUpForm
+from products.models import Items
 
 
 # Create your views here.
-def home(requests):
-    context = {
-        'cart_entries': [
-            {
-                'title': 'GOOD SHOES!',
-                'body': 'I have created my first template in Django!',
-
-            },
-            {
-                'title': 'QUALITY ITEMS',
-                'body': 'Something else in there',
-
-            },
-            {
-                'title': 'SOMETHING ELSE!!',
-                'body': 'Am i doing it right?',
-
-            },
-            {
-                'title': 'NEW!!',
-                'body': 'Am i doing it right?',
-
-            },
-            {
-                'title': 'DISCOUNTED',
-                'body': 'Am i doing it right?',
-
-            }
-        ]
-    }
-
-    return render(requests, 'home.html', context)
+class HomeView(ListView):
+    model = Items
+    template_name = "home.html"
+    success_url = reverse_lazy("home")
+    context_object_name = "items"
 
 
 def products(requests):
     return render(requests, "products.html")
+
+
+class UserCreateView(CreateView):
+    model = User
+    template_name = 'registration/signup.html'
+    form_class = SignUpForm
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
