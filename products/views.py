@@ -4,19 +4,22 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 
 from products.forms import SignUpForm
-from products.models import Items
+from products.models import Post
 
 
 # Create your views here.
 class HomeView(ListView):
-    model = Items
+    model = Post
     template_name = "home.html"
     success_url = reverse_lazy("home")
-    context_object_name = "items"
+    context_object_name = "posts"
 
 
-def products(requests):
-    return render(requests, "products.html")
+class ProductsView(ListView):
+    model = Post
+    template_name = "products.html"
+    success_url = reverse_lazy("home")
+    context_object_name = "posts"
 
 
 class UserCreateView(CreateView):
