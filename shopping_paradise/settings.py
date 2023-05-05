@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
+    'sorl.thumbnail',
+
 ]
 
 MIDDLEWARE = [
@@ -126,5 +128,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_REDIRECT_URL = '/posts/'
+LOGIN_REDIRECT_URL = '/products/'
 LOGOUT_REDIRECT_URL = "/"
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
