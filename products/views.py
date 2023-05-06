@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 
 from products.forms import SignUpForm
 from products.models import Post
@@ -31,3 +31,9 @@ class UserCreateView(CreateView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class ProductDetailView(DetailView):
+    http_method_names = ["get"]
+    template_name = "detail.html"
+    model = Post
