@@ -16,54 +16,54 @@
 {% endif %}
 
 
+<div class="container my-4">
+    <div class="p-3 text-center">
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
 
 
-    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
 
-
-
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-
-            </div>
-
-            <!-- Password input -->
-            <div class="form-outline mb-3">
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox -->
-                <div class="form-check mb-0">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
-                    <label class="form-check-label" for="form2Example3">
-                        Remember me
-                    </label>
                 </div>
 
-                {# Assumes you setup the password_reset view in your URLconf #}
-                <a href="{% url 'password_reset' %}" class="text-body">Forgot password?</a>
-            </div>
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
 
-            <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="submit" value="login" class="btn btn-primary btn-lg"
-                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login
-                </button>
-                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{% url 'products:signup' %}"
-                                                                                  class="link-danger">Register</a></p>
-            </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <!-- Checkbox -->
+                    <div class="form-check mb-0">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
+                        <label class="form-check-label" for="form2Example3">
+                            Remember me
+                        </label>
+                    </div>
+
+                    {# Assumes you setup the password_reset view in your URLconf #}
+                    <a href="{% url 'password_reset' %}" class="text-body">Forgot password?</a>
+                </div>
+
+                <div class="">
+                    <button type="submit" value="login" class="btn btn-primary btn w-100"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Login
+                    </button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{% url 'products:signup' %}"
+                                                                                      class="link-danger">Register</a>
+                    </p>
+                </div>
 
 
-        <input type="hidden" name="next" value="{{ next }}"/>
-    </form>
-
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+        </div>
+    </div>
 </div>
-
 
 {% endblock %}
