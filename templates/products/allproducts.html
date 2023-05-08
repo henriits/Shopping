@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+
+{% block content %}
+
+
+<!-- Related items section-->
+<section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-12 justify-content-center gx-5 gy-5">
+            {% for post in posts %}
+            <div class="col mb-5">
+                <div class="card h-100 ">
+                    <!-- Product image-->
+                    {% thumbnail post.image "250x250" crop="center" as im %}
+                    <img class="card-img-top " src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+
+
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{ post.title }}</h5>
+                            <!-- Product price-->
+                            ${{ post.price }}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+
+                        <div class="text-center">
+                            <a class="btn w-50 btn-outline-dark mt-auto" href="{% url 'products:detail' post.id %}">Details</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+<!-- Footer-->
+
+
+{% endblock %}
+
+
+
+
