@@ -21,14 +21,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from products import urls as product_urls
-
+from shopping_paradise.views import UserCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include(product_urls, namespace="products"),),
+    path("", include(product_urls, namespace="products"), ),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/signup/", UserCreateView.as_view(), name="signup"),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
