@@ -1,0 +1,35 @@
+.header-image {
+    background-image: url("/static/img/greenbackground.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.text-white-50 {
+    color: white !important;
+}
+
+
+
+@media (max-width: 1920px) {
+    .header-title {
+        font-size: 6rem;
+    }
+
+}
+
+
+@media (max-width: 1020px) {
+    .header-title {
+        font-size: 3rem;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+    .header-title {
+        font-size: 2rem;
+    }
+
+}
