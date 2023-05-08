@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+<div class="container-fluid">
+    <h1 class="text-center mb-5">Shopping Cart</h1>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="https://via.placeholder.com/300x200.png?text=Product+Image" alt="Product Image"
+                                 class="img-fluid">
+                        </div>
+
+                        <!-- forloop to be added-->
+                        <div class="col-md-7">
+                            <h3>Product Title</h3>
+                            <p class="text-muted">Product description goes here</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <button class="btn btn-sm btn-danger">Remove</button>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Price: $XXXX</p>
+                                    <p class="mb-0">Quantity: XXX</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- endfor -->
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7">
+
+                            <div class="card-body w-100">
+                                <h3>Cart Summary</h3>
+                                <hr>
+                                <!-- need to provide calculation script -->
+                                <p>Total Items: x</p>
+                                <p>Total Price: $xxxx</p>
+                                <a href="#" class="btn btn-primary btn-block">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row mx-auto text-center">
+        <div class="">
+            <h1>Please Log in to see this page!</h1>
+        </div>
+        <div class="">
+            <a class="btn btn-primary btn-block" href="{% url 'login' %}">Go to Login
+                page</a>
+        </div>
+    </div>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
