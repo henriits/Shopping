@@ -3,7 +3,9 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<div class="mx-auto" style="color:red;">
+    <p>Your username and password didn't match. Please try again.</p>
+</div>
 {% endif %}
 
 {% if next %}
@@ -51,7 +53,7 @@
                 </div>
 
                 <div class="">
-                    <button type="submit" value="login" class="btn btn-primary btn w-100"
+                    <button type="submit" value="login" class="btn btn-success btn w-100"
                             style="padding-left: 2.5rem; padding-right: 2.5rem;">Login
                     </button>
                     <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{% url 'signup' %}"
