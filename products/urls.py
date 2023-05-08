@@ -10,7 +10,9 @@ app_name = "products"  # this will be used in links to define ex: products:detai
 urlpatterns = [
     path("",HomeView.as_view(), name="home"),
     path("products/", ProductsView.as_view(), name="products"),
-    path("products/<int:pk>/", ProductDetailView.as_view(), name="detail")
+    path("allproducts/", AllProductsView.as_view(), name="allproducts"),
+    path("products/<int:pk>/", ProductDetailView.as_view(), name="detail"),
+    path("products/shoppingcart", ShoppingCartView.as_view(), name="shoppingcart")
 ]
 
 if settings.DEBUG:
