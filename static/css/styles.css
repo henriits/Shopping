@@ -4,6 +4,13 @@
     background-position: center;
 }
 
+.home-images {
+    border-radius: 45%;
+    max-width: 1650px;
+    height: 150px;
+
+}
+
 
 .text-white-50 {
     color: white !important;
