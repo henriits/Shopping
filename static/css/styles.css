@@ -13,6 +13,11 @@
 }
 
 
+.all-images {
+     box-shadow: 6px 6px 60px #33da00;
+}
+
+
 .text-white-50 {
     color: white !important;
 }
