@@ -2,8 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
+from rest_framework import viewsets
 
 from products.models import Post
+from products.serializers import PostSerializer
 
 
 # Create your views here.
@@ -39,3 +41,8 @@ class ProductDetailView(DetailView):
 class ShoppingCartView(ListView, LoginRequiredMixin):
     template_name = "products/shoppingcart.html"
     model = Post
+
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().order_by('title')
+    serializer_class = PostSerializer
