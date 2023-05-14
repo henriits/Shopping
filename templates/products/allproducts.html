@@ -7,8 +7,16 @@
 
 <!-- Related items section-->
 <section class="py-5 bg-light">
-    <div class="container px-4 px-lg-5 mt-5">
+    <div class="container text-center">
+        <form method="get">
+            <div class="input-group my-3">
+                <input type="text" class="form-control" name="q" placeholder="Search for product">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
 
+    <div class="container px-4 px-lg-5 mt-5">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-12 justify-content-center gx-5 gy-5">
             {% for post in posts %}
@@ -16,7 +24,8 @@
                 <div class="card h-100 ">
                     <!-- Product image-->
                     {% thumbnail post.image "250x250" crop="center" as im %}
-                    <img class="card-img-top all-images " src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    <img class="card-img-top all-images " src="{{ im.url }}" width="{{ im.width }}"
+                         height="{{ im.height }}">
                     {% endthumbnail %}
 
 
